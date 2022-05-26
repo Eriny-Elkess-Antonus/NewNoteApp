@@ -6,7 +6,7 @@ class NoteRepositry {
   final collection = _db.collection('Note');
 
   Future<List<Note>> getAll() async {
-    final snapshot = await collection.get();
+    final snapshot = await collection.orderBy('date', descending: true).get();
     // ignore: sdk_version_constructor_tearoffs
     return snapshot.docs.map(Note.fromDoc).toList();
   }
@@ -16,7 +16,6 @@ class NoteRepositry {
   //   collection;
   //   return add;
   // }
-
   Future<DocumentReference> addNewNote(Note note) {
     return collection.add(note.toJson());
   }

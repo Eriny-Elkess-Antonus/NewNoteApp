@@ -10,8 +10,9 @@ import '../widget/allNoteList.dart';
 import 'addNote.dart';
 
 class AllNotePage extends StatelessWidget with RouteMixin {
-  const AllNotePage({Key? key}) : super(key: key);
-
+  const AllNotePage({
+    Key? key,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Provider(
@@ -26,7 +27,7 @@ class AllNotePage extends StatelessWidget with RouteMixin {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const AddNotePage(),
+                builder: (context) => AddNotePage(),
               ),
             );
           },
